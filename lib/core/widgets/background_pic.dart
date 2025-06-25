@@ -2,8 +2,10 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class BackgroundPic extends StatelessWidget {
+  const BackgroundPic({super.key, required this.child});
+
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {
@@ -17,14 +19,12 @@ class HomePage extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-          ), BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 12.5, sigmaY:12.5),
-            child: Container(
-              color: Colors.black.withOpacity(0),
-            ),
           ),
-
-
+          BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 12.5, sigmaY: 12.5),
+            child: Container(color: Colors.black.withOpacity(0)),
+          ),
+          child,
         ],
       ),
     );
