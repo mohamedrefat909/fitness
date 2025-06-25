@@ -1,30 +1,20 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatelessWidget{
   const HomePage({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
+      appBar: AppBar(
+
+      ),
+      body: Column(
         children: [
-          Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/images/background.png'),
-                fit: BoxFit.cover,
-              ),
-            ),
-          ), BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 12.5, sigmaY:12.5),
-            child: Container(
-              color: Colors.black.withOpacity(0),
-            ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: TextFormField(),
           ),
-
-
+          ElevatedButton(onPressed: (){}, child: Text('Ok'))
         ],
       ),
     );
