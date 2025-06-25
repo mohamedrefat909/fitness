@@ -2,12 +2,19 @@ import 'package:fitness/core/routes_manager/routes_name.dart';
 import 'package:fitness/features/home.dart';
 import 'package:flutter/material.dart';
 
+import '../../features/measurments/body_measures_age.dart';
+
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case RoutesName.home:
         return MaterialPageRoute(
           builder: (context) => HomePage(),
+          settings: settings,
+        );
+      case RoutesName.registerAge:
+        return MaterialPageRoute(
+          builder: (context) => BodyMeasuresAge(),
           settings: settings,
         );
       default:
