@@ -1,6 +1,6 @@
 import 'package:fitness/core/routes_manager/routes_name.dart';
 import 'package:fitness/features/home.dart';
-import 'package:fitness/features/login/presentation/screens/login_screen.dart';
+import 'package:fitness/features/auth/login/presentation/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 
 class RouteGenerator {
