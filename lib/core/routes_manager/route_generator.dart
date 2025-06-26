@@ -1,5 +1,6 @@
 import 'package:fitness/core/routes_manager/routes_name.dart';
 import 'package:fitness/features/home.dart';
+import 'package:fitness/features/login/presentation/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 
 class RouteGenerator {
@@ -12,7 +13,7 @@ class RouteGenerator {
         );
       default:
         return MaterialPageRoute(
-          builder: (context) => const HomePage(),
+          builder: (context) =>  LoginScreen(),
           settings: settings,
         );
     }
