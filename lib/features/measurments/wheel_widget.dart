@@ -50,37 +50,40 @@ class _WheelWidgetState extends State<WheelWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
+    final screenHeight = screenSize.height;
+    final screenWidth = screenSize.width;
+    
     return ClipRRect(
-      borderRadius: BorderRadius.circular(50),
+      borderRadius: BorderRadius.circular(screenWidth * 0.12),
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 35, sigmaY: 35),
         child: Container(
-          height: MediaQuery.of(context).size.height * .32,
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
+          height: screenHeight * .32,
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(screenWidth * 0.05)),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Padding(
                 padding: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * .03,
+                  top: screenHeight * .02,
                 ),
                 child: Text(
                   widget.unit,
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: screenWidth * 0.035,
                     fontWeight: FontWeight.w400,
                     color: AppColors.primaryColor,
                   ),
                 ),
               ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * .15,
+              Expanded(
                 child: RotatedBox(
                   quarterTurns: 3,
                   child: ListWheelScrollView.useDelegate(
                     controller: _scrollController,
-                    itemExtent: 80,
+                    itemExtent: screenHeight * 0.09,
                     perspective: 0.003,
                     diameterRatio: 2.0,
                     physics: const FixedExtentScrollPhysics(),
@@ -111,7 +114,7 @@ class _WheelWidgetState extends State<WheelWidget> {
                                 color: isSelected
                                     ? AppTheme.lightTheme.primaryColor
                                     : Colors.white70,
-                                fontSize: isSelected ? 44 : 24,
+                                fontSize: isSelected ? screenWidth * 0.11 : screenWidth * 0.06,
                                 fontWeight: FontWeight.w800,
                               ),
                             ),
@@ -125,10 +128,10 @@ class _WheelWidgetState extends State<WheelWidget> {
               Icon(
                 Icons.arrow_drop_up,
                 color: AppColors.primaryColor,
-                size: 40,
+                size: screenWidth * 0.08,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+                padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.035, vertical: screenHeight * 0.015),
                 child: ElevatedButton(
                   onPressed: _isChanged ? widget.onTap : null,
                   style: ElevatedButton.styleFrom(
@@ -136,12 +139,15 @@ class _WheelWidgetState extends State<WheelWidget> {
                         ? AppColors.primaryColor
                         : AppColors.primaryColor.withOpacity(0.5),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(screenWidth * 0.05),
                     ),
                   ),
                   child: Text(
                     widget.buttonText,
-                    style: const TextStyle(color: Colors.white),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: screenWidth * 0.038,
+                    ),
                   ),
                 ),
               ),

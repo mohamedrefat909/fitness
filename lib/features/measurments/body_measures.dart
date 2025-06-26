@@ -32,6 +32,10 @@ class BodyMeasures extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
+    final screenHeight = screenSize.height;
+    final screenWidth = screenSize.width;
+    
     return BackgroundPic(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,15 +48,15 @@ class BodyMeasures extends StatelessWidget {
                 ),
           ),
           Padding(
-            padding: EdgeInsetsGeometry.symmetric(
-              vertical: MediaQuery.of(context).size.height * .04,
+            padding: EdgeInsets.symmetric(
+              vertical: screenHeight * .04,
             ),
             child: Center(
               child: RotatedBox(
                 quarterTurns: 3,
                 child: CircularPercentIndicator(
-                  radius: 35,
-                  lineWidth: 8.0,
+                  radius: screenWidth * 0.08,
+                  lineWidth: screenWidth * 0.02,
                   percent: index / 6,
                   center: RotatedBox(
                     quarterTurns: 1,
@@ -61,7 +65,7 @@ class BodyMeasures extends StatelessWidget {
                       style: TextStyle(
                         fontWeight: FontWeight.w500,
                         color: Colors.white,
-                        fontSize: 18,
+                        fontSize: screenWidth * 0.045,
                       ),
                     ),
                   ),
@@ -73,11 +77,11 @@ class BodyMeasures extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+            padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.04),
             child: Text(
               question,
               style: TextStyle(
-                fontSize: 25,
+                fontSize: screenWidth * 0.06,
                 color: Colors.white,
                 fontWeight: FontWeight.w800,
               ),
@@ -85,18 +89,18 @@ class BodyMeasures extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+            padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.04),
             child: Text(
               "this helps us create Your personalized plan",
               style: TextStyle(
-                fontSize: 15,
+                fontSize: screenWidth * 0.038,
                 color: Colors.white,
                 fontWeight: FontWeight.w400,
               ),
               textAlign: TextAlign.start,
             ),
           ),
-          SizedBox(height: 25),
+          SizedBox(height: screenHeight * 0.03),
           WheelWidget(
             onValueChanged: onValueChanged,
             initialValue: initialValue,

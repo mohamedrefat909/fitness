@@ -10,6 +10,10 @@ class MeasurePageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
+    final screenHeight = screenSize.height;
+    final screenWidth = screenSize.width;
+    
     return PageView(
       controller: controller,
       physics: NeverScrollableScrollPhysics(),
