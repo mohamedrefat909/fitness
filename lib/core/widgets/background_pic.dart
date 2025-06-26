@@ -22,9 +22,9 @@ class BackgroundPic extends StatelessWidget {
           ),
           BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 12.5, sigmaY: 12.5),
-            child: Container(color: Colors.black.withOpacity(0)),
+            child: Container(child:   child,),
           ),
-          child,
+
         ],
       ),
     );
