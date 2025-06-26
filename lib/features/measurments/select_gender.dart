@@ -49,8 +49,8 @@ class _SelectGenderState extends State<SelectGender> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.symmetric(
-              vertical: screenHeight * .04,
+            padding: EdgeInsets.only(
+              top: screenHeight * .02,
             ),
             child: Center(
               child: RotatedBox(
@@ -106,7 +106,7 @@ class _SelectGenderState extends State<SelectGender> {
             child: BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 35, sigmaY: 35),
               child: Container(
-                height: screenHeight * .4,
+                height: screenHeight * .485,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(screenWidth * 0.05),
                 ),

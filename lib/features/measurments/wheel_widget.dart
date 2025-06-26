@@ -83,7 +83,7 @@ class _WheelWidgetState extends State<WheelWidget> {
                   quarterTurns: 3,
                   child: ListWheelScrollView.useDelegate(
                     controller: _scrollController,
-                    itemExtent: screenHeight * 0.09,
+                    itemExtent: screenHeight * 0.12,
                     perspective: 0.003,
                     diameterRatio: 2.0,
                     physics: const FixedExtentScrollPhysics(),
