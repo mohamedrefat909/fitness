@@ -2,9 +2,15 @@ import 'package:fitness/core/app_theme/app_theme.dart';
 import 'package:fitness/core/routes_manager/route_generator.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+import 'core/di/di.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await configureDependencies(); // ✅ كده صح
   runApp(const MyApp());
 }
+
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

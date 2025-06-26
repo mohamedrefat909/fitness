@@ -24,11 +24,10 @@ class AppTheme {
         color: AppColors.primaryTextColor,
         fontFamily: AppColors.fontFamily,
       ),
-      titleMedium: TextStyle(
-        color: Color(0xFF878787),
-        fontSize: 16,
-        fontWeight: FontWeight.w500,
-        fontFamily: AppColors.fontFamily,
+      titleMedium: GoogleFonts.balooThambi2(
+        fontSize: 14,
+        fontWeight: FontWeight.w800,
+        color: AppColors.backgroundColor,
       ),
       titleSmall: TextStyle(
         color: AppColors.greyColor,
@@ -50,15 +49,31 @@ class AppTheme {
         color: AppColors.error,
       ),
       border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(5),
-        borderSide: BorderSide(color: AppColors.greyColor),
+        borderRadius: BorderRadius.circular(25),
+        borderSide: BorderSide(color: AppColors.backgroundColor),
       ),
       focusedBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: AppColors.greyColor),
+        borderRadius: BorderRadius.circular(25),
+        borderSide: BorderSide(color: AppColors.primaryColor),
       ),
       enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(25),
         borderSide: BorderSide(color: AppColors.greyColor),
       ),
     ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all(AppColors.primaryColor),
+        foregroundColor: MaterialStateProperty.all(Colors.white),
+        padding: MaterialStateProperty.all(
+          EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        ),
+        shape: MaterialStateProperty.all(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(25),
+          ),
+        ),
+      )
+    )
   );
 }
