@@ -3,6 +3,9 @@ class UserModel {
   String? lastName;
   String? email;
   String? gender;
+  int? height;
+  int? weight;
+  int? age;
   String? phoneNumber;
   String? profileImage;
   String? role;
