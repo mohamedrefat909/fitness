@@ -107,10 +107,11 @@ class BodyMeasures extends StatelessWidget {
             maxValue: end,
             minValue: start,
             unit: unit,
-            buttonText: index != 4 ? "Next" : "Done",
+            buttonText:"Next",
+            //index != 4 ? "Next" : "Done",
             onTap:
                 () =>
-                    index == 4
+                    index == 6
                         ? {
                           print(UserModel.instance.age),
                           print(UserModel.instance.height),

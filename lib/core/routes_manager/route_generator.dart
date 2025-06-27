@@ -1,6 +1,9 @@
 import 'package:fitness/core/routes_manager/routes_name.dart';
+import 'package:fitness/features/app/onboarding/presentation/pages/onboarding_screen.dart';
+import 'package:fitness/features/app/splash/presentation/pages/splash_screen.dart';
 import 'package:fitness/features/app_sections/presentation/view/app_section_view.dart';
 import 'package:fitness/features/home.dart';
+import 'package:fitness/features/auth/login/presentation/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 import '../../features/measurments/measure_page_view.dart';
 
@@ -17,6 +20,14 @@ class RouteGenerator {
           builder: (context) => MeasurePageView(),
           settings: settings,
         );
+        case RoutesName.splash:
+          return MaterialPageRoute(
+            builder: (context) => SplashScreen(),
+          );
+      case RoutesName.onboarding:
+        return MaterialPageRoute(
+          builder: (context) => OnboardingScreen(),
+        );
       case RoutesName.bottomNavBar:
         return MaterialPageRoute(
           builder: (context) => AppSectionView(),
@@ -24,7 +35,7 @@ class RouteGenerator {
         );
       default:
         return MaterialPageRoute(
-          builder: (context) => const HomePage(),
+          builder: (context) =>  LoginScreen(),
           settings: settings,
         );
     }
