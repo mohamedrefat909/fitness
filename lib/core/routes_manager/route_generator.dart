@@ -2,6 +2,7 @@ import 'package:fitness/core/routes_manager/routes_name.dart';
 import 'package:fitness/features/app/onboarding/presentation/pages/onboarding_screen.dart';
 import 'package:fitness/features/app/splash/presentation/pages/splash_screen.dart';
 import 'package:fitness/features/home.dart';
+import 'package:fitness/features/auth/login/presentation/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../features/measurments/body_measures.dart';
@@ -30,7 +31,7 @@ class RouteGenerator {
         );
       default:
         return MaterialPageRoute(
-          builder: (context) => const HomePage(),
+          builder: (context) =>  LoginScreen(),
           settings: settings,
         );
     }
