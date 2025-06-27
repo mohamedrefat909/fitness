@@ -15,4 +15,5 @@ class AppColors {
   static const transparent = Colors.transparent;
   static const filedBorderColor=Color(0xffD3D3D3);
   static const hintTextColor=Color(0xffD3D3D3);
+  static const Color grey = Color(0xFFD3D3D3);
 }

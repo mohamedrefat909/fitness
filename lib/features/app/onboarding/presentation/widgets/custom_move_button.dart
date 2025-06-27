@@ -59,7 +59,7 @@ class CustomMoveButton extends StatelessWidget {
               if(controller.page == OnboardingModel.onboardingList.length -1){
                 final pres = await SharedPreferences.getInstance();
                 pres.setBool(StringManager.onboardingKey, true);
-                Navigator.pushReplacementNamed(context, RoutesName.registerAge);
+                Navigator.pushReplacementNamed(context, RoutesName.login);
               }
               controller.nextPage(
                 duration: const Duration(

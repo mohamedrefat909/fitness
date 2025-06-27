@@ -21,7 +21,7 @@ class LoginCubit extends Cubit<LoginCubitState> {
     
     switch (response) {
       case Success():{
-        UserModel.instance.setFromJson(response.data!.toJson());
+        UserModel.instance.setFromApi(response.data!.toJson());
          emit(LoginSuccessState());
          
       }
