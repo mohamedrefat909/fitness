@@ -31,7 +31,7 @@ class AppTheme {
         fontFamily: AppColors.fontFamily,
       ),
       titleSmall: TextStyle(
-        color: AppColors.greyColor,
+        color: AppColors.backgroundColor,
         fontSize: 14,
         fontWeight: FontWeight.w500,
         fontFamily: AppColors.fontFamily,
