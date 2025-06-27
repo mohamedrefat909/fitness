@@ -1,7 +1,12 @@
 import 'package:fitness/core/routes_manager/routes_name.dart';
+import 'package:fitness/features/app/onboarding/presentation/pages/onboarding_screen.dart';
+import 'package:fitness/features/app/splash/presentation/pages/splash_screen.dart';
 import 'package:fitness/features/home.dart';
 import 'package:fitness/features/auth/login/presentation/screens/login_screen.dart';
 import 'package:flutter/material.dart';
+
+import '../../features/measurments/body_measures.dart';
+import '../../features/measurments/measure_page_view.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -10,6 +15,19 @@ class RouteGenerator {
         return MaterialPageRoute(
           builder: (context) => HomePage(),
           settings: settings,
+        );
+      case RoutesName.registerAge:
+        return MaterialPageRoute(
+          builder: (context) => MeasurePageView(),
+          settings: settings,
+        );
+        case RoutesName.splash:
+          return MaterialPageRoute(
+            builder: (context) => SplashScreen(),
+          );
+      case RoutesName.onboarding:
+        return MaterialPageRoute(
+          builder: (context) => OnboardingScreen(),
         );
       default:
         return MaterialPageRoute(
