@@ -45,7 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Navigator.of(
                     context,
                     rootNavigator: true,
-                  ).pushNamed(RoutesName.home);
+                  ).pushNamed(RoutesName.bottomNavBar);
                 }
                 if (state is LoginErrorState) {
                   ScaffoldMessenger.of(
