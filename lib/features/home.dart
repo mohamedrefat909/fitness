@@ -16,7 +16,7 @@ class HomePage extends StatelessWidget{
             child: TextFormField(),
           ),
           ElevatedButton(onPressed: (){
-Navigator.pushNamed(context, RoutesName.registerAge);
+Navigator.pushNamed(context, RoutesName.bottomNavBar);
           }, child: Text('Ok'))
         ],
       ),

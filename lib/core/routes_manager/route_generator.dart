@@ -1,8 +1,7 @@
 import 'package:fitness/core/routes_manager/routes_name.dart';
+import 'package:fitness/features/app_sections/presentation/view/app_section_view.dart';
 import 'package:fitness/features/home.dart';
 import 'package:flutter/material.dart';
-
-import '../../features/measurments/body_measures.dart';
 import '../../features/measurments/measure_page_view.dart';
 
 class RouteGenerator {
@@ -16,6 +15,11 @@ class RouteGenerator {
       case RoutesName.registerAge:
         return MaterialPageRoute(
           builder: (context) => MeasurePageView(),
+          settings: settings,
+        );
+      case RoutesName.bottomNavBar:
+        return MaterialPageRoute(
+          builder: (context) => AppSectionView(),
           settings: settings,
         );
       default:

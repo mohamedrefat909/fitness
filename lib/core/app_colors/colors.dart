@@ -12,4 +12,6 @@ class AppColors {
   static Color textField = const Color(0xffA6A6A6);
   static const Color greyColor2 = Color(0xFF535353);
   static const black = Color(0xff000000);
+  static const bottomNavColor = Color(0xff242424);
+  static const white = Color(0xffFFFFFF);
 }
