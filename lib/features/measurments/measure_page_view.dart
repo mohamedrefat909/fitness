@@ -1,4 +1,5 @@
 import 'package:fitness/core/models/user_model.dart';
+import 'package:fitness/features/measurments/multiple_choice.dart';
 import 'package:fitness/features/measurments/select_gender.dart';
 import 'package:flutter/material.dart';
 import 'body_measures.dart';
@@ -61,6 +62,33 @@ class MeasurePageView extends StatelessWidget {
           onValueChanged: (int value) {
             UserModel.instance.weight = value;
           },
+        ),
+        MultipleChoicePage(
+          controller: controller,
+          index: 5,
+          question: "WHAT IS YOUR GOAL?",
+          options: [
+            'Gain Weight',
+            'Lose Weight',
+            'Get Fitter',
+            'Gain More Flexible',
+            'Learn The Basic',
+          ],
+          onSave: (val) => UserModel.instance.role = val,
+        ),
+        MultipleChoicePage(
+          controller: controller,
+          index: 6,
+          question: "YOUR REGULAR PHYSICAL ACTIVITY LEVEL?",
+          options: [
+            'Rookie',
+            'Beginner',
+            'Intermediate',
+            'Advance',
+            'True Beast',
+          ],
+          onSave: (val) => UserModel.instance.role = val,
+          isLast: true,
         ),
       ],
     );
