@@ -1,11 +1,10 @@
 import 'package:fitness/core/routes_manager/routes_name.dart';
 import 'package:fitness/features/app/onboarding/presentation/pages/onboarding_screen.dart';
 import 'package:fitness/features/app/splash/presentation/pages/splash_screen.dart';
+import 'package:fitness/features/app_sections/presentation/view/app_section_view.dart';
 import 'package:fitness/features/home.dart';
 import 'package:fitness/features/auth/login/presentation/screens/login_screen.dart';
 import 'package:flutter/material.dart';
-
-import '../../features/measurments/body_measures.dart';
 import '../../features/measurments/measure_page_view.dart';
 
 class RouteGenerator {
@@ -28,6 +27,11 @@ class RouteGenerator {
       case RoutesName.onboarding:
         return MaterialPageRoute(
           builder: (context) => OnboardingScreen(),
+        );
+      case RoutesName.bottomNavBar:
+        return MaterialPageRoute(
+          builder: (context) => AppSectionView(),
+          settings: settings,
         );
       default:
         return MaterialPageRoute(

@@ -16,4 +16,6 @@ class AppColors {
   static const filedBorderColor=Color(0xffD3D3D3);
   static const hintTextColor=Color(0xffD3D3D3);
   static const Color grey = Color(0xFFD3D3D3);
+  static const bottomNavColor = Color(0xff242424);
+  static const white = Color(0xffFFFFFF);
 }
