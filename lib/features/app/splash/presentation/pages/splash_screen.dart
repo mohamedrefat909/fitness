@@ -18,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
       final prefs = await SharedPreferences.getInstance();
       final onboarding = prefs.getBool(StringManager.onboardingKey) ?? false;
       if(onboarding) {
-        Navigator.pushReplacementNamed(context, RoutesName.login);
+        Navigator.pushReplacementNamed(context, RoutesName.bottomNavBar);
       }else{
         Navigator.pushReplacementNamed(context, RoutesName.onboarding);
       }
