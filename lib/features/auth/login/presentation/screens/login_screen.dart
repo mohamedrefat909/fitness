@@ -34,6 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(context) {
     return BackgroundPic(
+      backgroundImage: 'assets/images/background.png',
       child: SafeArea(
         child: SizedBox(
           width: double.infinity,

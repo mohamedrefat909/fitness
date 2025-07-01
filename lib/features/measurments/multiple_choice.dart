@@ -36,6 +36,7 @@ class _MultipleChoicePageState extends State<MultipleChoicePage> {
     final screenHeight = screenSize.height;
 
     return BackgroundPic(
+      backgroundImage: 'assets/images/background.png',
       child: ListView(
         children: [
           CustomAppBar(

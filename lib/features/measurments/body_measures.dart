@@ -37,6 +37,7 @@ class BodyMeasures extends StatelessWidget {
     final screenWidth = screenSize.width;
     
     return BackgroundPic(
+      backgroundImage: 'assets/images/background.png',
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
