@@ -2,6 +2,7 @@ import 'package:fitness/core/models/result.dart';
 import 'package:fitness/core/utils/shared_prefs_helper.dart';
 import 'package:fitness/features/auth/forgot_password/domain/entities/request/send_email_request_entity.dart';
 import 'package:fitness/features/auth/forgot_password/domain/entities/response/send_email_response_entity.dart';
+import 'package:fitness/features/auth/forgot_password/domain/entities/response/verify_reset_code_response_entity.dart';
 import 'package:fitness/features/auth/forgot_password/domain/usecases/reset_password_use_case.dart';
 import 'package:fitness/features/auth/forgot_password/domain/usecases/send_email_use_case.dart';
 import 'package:fitness/features/auth/forgot_password/domain/usecases/verify_reset_code_use_case.dart';
@@ -50,11 +51,11 @@ class ForgotPasswordCubit extends Cubit<ForgotPasswordState> {
     final result = await forgotPasswordUseCase.call(obj.model);
     switch (result) {
       case Success<SendEmailResponseEntity> success:
-      SharedPrefsHelper.saveEmail(obj.model.email);
+        SharedPrefsHelper.saveEmail(obj.model.email);
         emit(
           state.copyWith(
             status: Status.success,
-            message: success.data?.message,
+            message: success.data?.message ?? "تم إرسال الكود بنجاح.",
             successType: ForgotPasswordSuccessType.none,
           ),
         );
@@ -82,16 +83,16 @@ class ForgotPasswordCubit extends Cubit<ForgotPasswordState> {
     );
     final result = await verifyResetUseCase.call(obj.model);
     switch (result) {
-      case Success success:
+      case Success<VerifyResetCodeResponseEntity> success:
         emit(
           state.copyWith(
             status: Status.success,
-            message: success.data.message,
+            message: success.data?.message ?? "تم التحقق من الكود بنجاح.",
             successType: ForgotPasswordSuccessType.verifyCode,
           ),
         );
         break;
-      case Error error:
+      case Error<VerifyResetCodeResponseEntity> error:
         emit(
           state.copyWith(
             status: Status.error,
@@ -118,7 +119,7 @@ class ForgotPasswordCubit extends Cubit<ForgotPasswordState> {
         emit(
           state.copyWith(
             status: Status.success,
-            message: success.data.message,
+            message: success.data?.message ?? "تم إعادة تعيين كلمة المرور بنجاح.",
             successType: ForgotPasswordSuccessType.resetPassword,
           ),
         );
@@ -168,7 +169,7 @@ class ForgotPasswordCubit extends Cubit<ForgotPasswordState> {
         emit(
           state.copyWith(
             status: Status.success,
-            message: "تم إعادة إرسال الكود بنجاح: ${success.data?.message}",
+            message: "تم إعادة إرسال الكود بنجاح: ${success.data?.message ?? ""}",
             successType: ForgotPasswordSuccessType.resendCode,
           ),
         );

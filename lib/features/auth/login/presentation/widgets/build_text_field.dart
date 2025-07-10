@@ -1,4 +1,5 @@
 import 'package:fitness/core/app_colors/colors.dart';
+
 //import 'package:fitness/core/app_constants/app_validators.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -31,37 +32,33 @@ class _BuildTextFieldState extends State<BuildTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      autovalidateMode: widget.autovalidateMode ?? AutovalidateMode.onUserInteraction,
+      autovalidateMode:
+          widget.autovalidateMode ?? AutovalidateMode.onUserInteraction,
       controller: widget.controller,
       maxLines: 1,
       keyboardType: TextInputType.emailAddress,
       decoration: InputDecoration(
         labelText: widget.labelText,
         labelStyle: GoogleFonts.inter(
-          color: AppColors.gray,
+          color: AppColors.lightGrey,
           fontWeight: FontWeight.w400,
         ),
         hintText: widget.hintText,
-        hintStyle: GoogleFonts.inter(
-          color: AppColors.textField,
-          fontSize: 14,
-        ),
+        hintStyle: GoogleFonts.inter(color: AppColors.textField, fontSize: 14),
         errorText: errorText,
-        errorStyle: GoogleFonts.inter(
-          color:AppColors.error,
-        ),
+        errorStyle: GoogleFonts.inter(color: AppColors.error),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(5),
-          borderSide: BorderSide(color: AppColors.gray),
+          borderSide: BorderSide(color: AppColors.lightGrey),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: AppColors.gray),
+          borderSide: BorderSide(color: AppColors.lightGrey),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: AppColors.gray),
+          borderSide: BorderSide(color: AppColors.lightGrey),
         ),
       ),
-      validator:widget.validation
+      validator: widget.validation,
     );
   }
 }

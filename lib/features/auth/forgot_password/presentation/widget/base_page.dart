@@ -25,6 +25,7 @@ class AuthBasePage extends StatelessWidget {
           Image.asset(
             'assets/images/backGround_image.png',
             fit: BoxFit.cover,
+            errorBuilder: (context, error, stackTrace) => const SizedBox(),
           ),
           BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 7, sigmaY: 7),
@@ -32,27 +33,39 @@ class AuthBasePage extends StatelessWidget {
               color: Colors.black.withOpacity(.2),
             ),
           ),
-          SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 48),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Center(child: Image.asset("assets/images/logo.png", width: screenWidth * 0.5)),
-                const SizedBox(height: 40),
-                Text(title,
+          SafeArea(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 48),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Center(
+                    child: Image.asset(
+                      "assets/images/logo.png",
+                      width: screenWidth * 0.5,
+                      errorBuilder: (context, error, stackTrace) => const SizedBox(),
+                    ),
+                  ),
+                  const SizedBox(height: 40),
+                  Text(
+                    title,
                     style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                      color: Colors.white,
-                      fontSize: 18,
-                    )),
-                const SizedBox(height: 8),
-                Text(subtitle,
+                          color: Colors.white,
+                          fontSize: 18,
+                        ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    subtitle,
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      fontSize: 20,
-                      color: Colors.white,
-                    )),
-                const SizedBox(height: 30),
-                child,
-              ],
+                          fontSize: 20,
+                          color: Colors.white,
+                        ),
+                  ),
+                  const SizedBox(height: 30),
+                  child,
+                ],
+              ),
             ),
           ),
         ],

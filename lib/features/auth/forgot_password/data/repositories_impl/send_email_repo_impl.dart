@@ -1,14 +1,16 @@
 import 'package:fitness/core/models/result.dart';
-import 'package:fitness/features/auth/forgot_password/data/datasources/remote/send_email_remote_data_source.dart';
+import 'package:fitness/features/auth/forgot_password/data/data_sources/contract/send_email_contract_data_source.dart';
+import 'package:fitness/features/auth/forgot_password/data/data_sources/mappers/forgot_password_mapper.dart';
+import 'package:fitness/features/auth/forgot_password/data/data_sources/remote/send_email_remote_data_source.dart';
 import 'package:fitness/features/auth/forgot_password/data/models/response/send_email_response_model.dart';
 import 'package:fitness/features/auth/forgot_password/domain/entities/request/send_email_request_entity.dart';
 import 'package:fitness/features/auth/forgot_password/domain/entities/response/send_email_response_entity.dart';
-import 'package:fitness/features/auth/forgot_password/data/datasources/mappers/forgot_password_mapper.dart';
 import 'package:fitness/features/auth/forgot_password/domain/repositories/send_email_repository.dart';
 import 'package:injectable/injectable.dart';
+
 @Injectable(as: SendEmailRepository)
 class SendEmailRepoImpl implements SendEmailRepository {
-  final SendEmailRemoteDataSource _remoteDataSource;
+  final SendEmailContractDataSource _remoteDataSource;
 
   SendEmailRepoImpl(this._remoteDataSource);
 

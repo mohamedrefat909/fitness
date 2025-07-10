@@ -54,10 +54,11 @@ dependencies:
   get_it: ^8.0.3
 
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  retrofit_generator: '>=8.0.0 <10.0.0' # for Dart 3.3 use ^9.0.0
+  retrofit_generator: ^9.2.0
   json_serializable: ^6.9.5
   build_runner: ^2.5.4
   injectable_generator: ^2.7.0

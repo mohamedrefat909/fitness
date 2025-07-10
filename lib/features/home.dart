@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fitness/core/routes_manager/routes_name.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -12,22 +13,19 @@ class HomePage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: TextFormField(),
           ),
-          ElevatedButton(onPressed: (){
-Navigator.pushNamed(context, RoutesName.bottomNavBar);
-          }, child: Text('Ok'))
-            ElevatedButton(onPressed: (){}, child: Text('Ok'))
+          ElevatedButton(
+            onPressed: () {
+              Navigator.pushNamed(context, RoutesName.bottomNavBar);
+            },
+            child: const Text('Ok'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+            },
+            child: const Text('Ok'),
+          ),
         ],
       ),
     );
   }
 }
-
-
-
-
-
-
-
-
-
-

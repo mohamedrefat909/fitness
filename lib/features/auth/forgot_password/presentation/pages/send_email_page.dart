@@ -11,12 +11,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class EmailPage extends StatelessWidget {
-  const EmailPage({super.key});
+  EmailPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<ForgotPasswordCubit>(),
+      create: (_) => getIt<ForgotPasswordCubit>(),
       child: BlocListener<ForgotPasswordCubit, ForgotPasswordState>(
         listener: (context, state) {
           if (state.status == Status.success) {
@@ -40,18 +40,22 @@ class EmailPage extends StatelessWidget {
                   controller: cubit.emailController,
                   hintText: "Email",
                   prefixIcon: Icons.email,
-                  bottomText: "Send Email",
-                  onTap: () {
-                    if (cubit.formKey.currentState!.validate()) {
-                      final email = cubit.emailController.text.trim();
-                      cubit.doIntent(
-                        SendEmailAction(
-                          SendEmailRequestEntity(email: email),
-                        ),
-                      );
-                    }
-                  },
+                  bottomText:
+                      state.status == Status.loading ? "Loading..." : "Send Email",
+                  onTap: state.status == Status.loading
+                      ? null
+                      : () {
+                          if (cubit.formKey.currentState?.validate() ?? false) {
+                            final email = cubit.emailController.text.trim();
+                            cubit.doIntent(
+                              SendEmailAction(
+                                SendEmailRequestEntity(email: email),
+                              ),
+                            );
+                          }
+                        },
                   hasSecondField: false,
+      
                 ),
               ),
             );

@@ -1,16 +1,16 @@
 import 'package:equatable/equatable.dart';
 
 class VerifyResetCodeResponseEntity extends Equatable {
-  final String status;
+  final String ?message;
 
 
   const VerifyResetCodeResponseEntity({
-    required this.status,
+    required this.message,
   });
 
   @override
 
-  List<Object?> get props =>[status];
+  List<Object?> get props =>[message];
 
 
 }

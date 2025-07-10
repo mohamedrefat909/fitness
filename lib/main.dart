@@ -5,26 +5,22 @@ import 'package:fitness/features/app_sections/presentation/view_model/navigation
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'core/di/di.dart';
-
-void main() async {
+void main()  {
   WidgetsFlutterBinding.ensureInitialized();
-  await configureDependencies(); // ✅ كده صح
-void main()async {
-   WidgetsFlutterBinding.ensureInitialized();
    configureDependencies();
   runApp(const MyApp());
 }
 
-
-
 class MyApp extends StatelessWidget {
-  const MyApp({super.key,});
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-    BlocProvider<NavigationCubit>(create: (_) => NavigationCubit())
+        BlocProvider<NavigationCubit>(
+          create: (_) => NavigationCubit(),
+        ),
       ],
       child: MaterialApp(
         title: 'Fitness',

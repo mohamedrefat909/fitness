@@ -78,7 +78,7 @@ extension VerifyResetCodeRequestMapper on VerifyResetCodeRequestEntity {
 extension VerifyResetCodeModelMapper on VerifyResetCodeResponseModel {
   VerifyResetCodeResponseEntity toEntity() {
     return VerifyResetCodeResponseEntity(
-      status: status,
+      message: message,
     );
   }
 }
@@ -86,7 +86,8 @@ extension VerifyResetCodeModelMapper on VerifyResetCodeResponseModel {
 extension VerifyResetCodeEntityMapper on VerifyResetCodeResponseEntity {
   VerifyResetCodeResponseModel toModel() {
     return VerifyResetCodeResponseModel(
-      status: status,
+      message: message,
     );
   }
 }
+
