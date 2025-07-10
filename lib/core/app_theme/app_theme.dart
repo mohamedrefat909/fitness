@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../app_colors/colors.dart';
-
 class AppTheme {
   static ThemeData lightTheme = ThemeData(
     scaffoldBackgroundColor: AppColors.backgroundColor,
@@ -24,11 +23,10 @@ class AppTheme {
         color: AppColors.primaryTextColor,
         fontFamily: AppColors.fontFamily,
       ),
-      titleMedium: TextStyle(
-        color: Color(0xFF878787),
-        fontSize: 16,
-        fontWeight: FontWeight.w500,
-        fontFamily: AppColors.fontFamily,
+      titleMedium: GoogleFonts.balooThambi2(
+        fontSize: 14,
+        fontWeight: FontWeight.w800,
+        color: AppColors.backgroundColor,
       ),
       titleSmall: TextStyle(
         color: AppColors.backgroundColor,
@@ -40,47 +38,58 @@ class AppTheme {
     inputDecorationTheme: InputDecorationTheme(
       contentPadding: EdgeInsets.symmetric(vertical: 14, horizontal: 16),
       labelStyle: GoogleFonts.balooThambi2(
-        color: AppColors.hintTextColor,
+        color: AppColors.lightGrey,
         fontWeight: FontWeight.w400,
         fontSize: 15,
       ),
-      hintStyle:  GoogleFonts.balooThambi2(
-        color: AppColors.hintTextColor,
+      hintStyle: GoogleFonts.balooThambi2(
+        color: AppColors.lightGrey,
         fontWeight: FontWeight.w400,
         fontSize: 15,
       ),
-      
-      suffixIconColor: AppColors.hintTextColor,
-      prefixIconColor:AppColors.hintTextColor ,
+      suffixIconColor: AppColors.lightGrey,
+      prefixIconColor: AppColors.lightGrey,
       errorStyle: GoogleFonts.balooThambi2(
         color: AppColors.error,
         fontSize: 12,
       ),
-      
       border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(20),
-        borderSide: BorderSide(color: AppColors.filedBorderColor),
+        borderRadius: BorderRadius.circular(25),
+        borderSide: BorderSide(color: AppColors.lightGrey),
       ),
-
-      errorBorder:OutlineInputBorder(
+      errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(20),
         borderSide: BorderSide(color: AppColors.error),
-      ), 
-      disabledBorder:OutlineInputBorder(
+      ),
+      disabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(20),
-        borderSide: BorderSide(color: AppColors.filedBorderColor),
-      ) ,
-      focusedErrorBorder:OutlineInputBorder(
+        borderSide: BorderSide(color: AppColors.lightGrey),
+      ),
+      focusedErrorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(20),
         borderSide: BorderSide(color: AppColors.error),
-      ),  
+      ),
       focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(20),
-        borderSide: BorderSide(color: AppColors.filedBorderColor),
+        borderRadius: BorderRadius.circular(25),
+        borderSide: BorderSide(color: AppColors.primaryColor),
       ),
       enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(20),
-        borderSide: BorderSide(color: AppColors.filedBorderColor),
+        borderRadius: BorderRadius.circular(25),
+        borderSide: BorderSide(color: AppColors.greyColor),
+      ),
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all(AppColors.primaryColor),
+        foregroundColor: MaterialStateProperty.all(Colors.white),
+        padding: MaterialStateProperty.all(
+          EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        ),
+        shape: MaterialStateProperty.all(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(25),
+          ),
+        ),
       ),
     ),
   );

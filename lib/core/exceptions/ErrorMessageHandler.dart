@@ -1,42 +1,48 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../models/error_data.dart';
 import 'exceptions_impl.dart';
 
-// دالة معالجة الخطأ
-String handleErrorMessage(Exception? ex, BuildContext context) {
-  String message = "";
+/// Returns a user-friendly error message for the given exception.
+String handleErrorMessage(Object? ex) {
   if (ex is ServerError) {
-    message = ex.errorModel?.message ?? "Server error occurred";
+    return ex.errorModel?.message ?? "Server error occurred";
   } else if (ex is ClientError) {
-    message = ex.errorModel?.message ?? "Please login again";
+    return ex.errorModel?.message ?? "Please login again";
   } else if (ex is NetworkError) {
-    message = ex.message ?? "Network error";
+    return ex.message ?? "Network error";
   } else {
-    message = "An unexpected error occurred";
+    return "An unexpected error occurred";
   }
-  return message;
 }
 
-// مكان استدعاء الدالة عند وقوع الخطأ:
-void handleError(Exception? ex, BuildContext context) {
-  String errorMessage = handleErrorMessage(ex, context);
-  print("Error message: $errorMessage");  // يمكن طباعة الرسالة على الconsole
+/// Shows an error dialog with the given exception's message.
+Future<void> showErrorDialog(BuildContext context, Object? ex) async {
+  final errorMessage = handleErrorMessage(ex);
 
-  // يمكنك إظهار الرسالة للمستخدم هنا باستخدام طريقة مثل:
-  showDialog(
+  // Use CupertinoAlertDialog for iOS, AlertDialog for others
+  final isIOS = Theme.of(context).platform == TargetPlatform.iOS;
+  return showDialog(
     context: context,
-    builder: (context) => CupertinoAlertDialog(
-      title: Text('Error'),
-      content: Text(errorMessage),
-      actions: <Widget>[
-        CupertinoDialogAction(
-          child: Text('OK'),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-      ],
-    ),
+    builder: (context) => isIOS
+        ? CupertinoAlertDialog(
+            title: const Text('Error'),
+            content: Text(errorMessage),
+            actions: [
+              CupertinoDialogAction(
+                child: const Text('OK'),
+                onPressed: () => Navigator.pop(context),
+              ),
+            ],
+          )
+        : AlertDialog(
+            title: const Text('Error'),
+            content: Text(errorMessage),
+            actions: [
+              TextButton(
+                child: const Text('OK'),
+                onPressed: () => Navigator.pop(context),
+              ),
+            ],
+          ),
   );
 }

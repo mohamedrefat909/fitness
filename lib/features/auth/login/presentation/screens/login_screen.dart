@@ -58,7 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 return ModalProgressHUD(
                   inAsyncCall: state is LoginLoadingState,
                   blur: 0.01,
-                  color: AppColors.gray,
+                  color: AppColors.lightGrey,
                   progressIndicator: const CircularProgressIndicator(
                     color: AppColors.primaryColor,
                   ),
@@ -149,10 +149,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                                     .onUserInteraction,
                                             controller: emailController,
                                             cursorColor:
-                                                AppColors.hintTextColor,
+                                                AppColors.lightGrey,
                                             cursorHeight: 20,
                                             style: GoogleFonts.balooThambi2(
-                                              color: AppColors.hintTextColor,
+                                              color: AppColors.lightGrey,
                                               fontWeight: FontWeight.w400,
                                               fontSize: 15,
                                             ),
@@ -174,16 +174,16 @@ class _LoginScreenState extends State<LoginScreen> {
                                             validator:
                                                 AppValidators.validatePassword,
                                             cursorColor:
-                                                AppColors.hintTextColor,
+                                                AppColors.lightGrey,
                                             cursorHeight: 20,
                                             style: GoogleFonts.balooThambi2(
-                                              color: AppColors.hintTextColor,
+                                              color: AppColors.lightGrey,
                                               fontWeight: FontWeight.w400,
                                               fontSize: 15,
                                             ),
                                             controller: passwordController,
                                             decoration: InputDecoration(
-                      
+
                                               errorBorder: OutlineInputBorder(),
                                               label: Text('Password'),
                                               prefixIcon: Icon(
@@ -206,7 +206,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                           Align(
                                             alignment: Alignment.topRight,
                                             child: TextButton(
-                                              onPressed: () {},
+                                              onPressed: () {
+                                                Navigator.of(
+                                                  context,
+                                                  rootNavigator: true,
+                                                ).pushNamed(RoutesName.sendEmail);
+                                              },
                                               child: Text(
                                                 'Forget Password?',
                                                 style: GoogleFonts.balooThambi2(

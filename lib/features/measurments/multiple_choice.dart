@@ -149,7 +149,7 @@ class _MultipleChoicePageState extends State<MultipleChoicePage> {
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: selectedValue == null
-                    ? AppColors.grey
+                    ? AppColors.lightGrey
                     : AppColors.primaryColor,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
