@@ -6,6 +6,9 @@ import 'package:fitness/features/auth/forgot_password/data/models/request/verify
 import 'package:fitness/features/auth/forgot_password/data/models/response/reset_password_response_model.dart';
 import 'package:fitness/features/auth/forgot_password/data/models/response/send_email_response_model.dart';
 import 'package:fitness/features/auth/forgot_password/data/models/response/verify_reset_code_response_model.dart';
+import 'package:fitness/core/models/user_model.dart';
+import 'package:fitness/features/auth/login/data/model/login_user_dto.dart';
+
 import 'package:retrofit/retrofit.dart';
 
 part 'api_manager.g.dart';
@@ -27,4 +30,6 @@ abstract class RestClient {
       );
 
 
+  @POST('auth/signin')
+  Future<LoginResponse> login(@Body() Map<String, dynamic> map);
 }

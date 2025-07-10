@@ -3,10 +3,10 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class BackgroundPic extends StatelessWidget {
-  const BackgroundPic({super.key, required this.child});
+  const BackgroundPic({super.key, required this.child,required this.backgroundImage});
 
   final Widget child;
-
+  final String backgroundImage;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,7 +15,7 @@ class BackgroundPic extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/background.png'),
+                image: AssetImage(backgroundImage),
                 fit: BoxFit.cover,
               ),
             ),

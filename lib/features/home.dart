@@ -12,6 +12,9 @@ class HomePage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: TextFormField(),
           ),
+          ElevatedButton(onPressed: (){
+Navigator.pushNamed(context, RoutesName.bottomNavBar);
+          }, child: Text('Ok'))
             ElevatedButton(onPressed: (){}, child: Text('Ok'))
         ],
       ),

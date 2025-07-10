@@ -39,6 +39,7 @@ class _SelectGenderState extends State<SelectGender> {
     final screenWidth = screenSize.width;
     
     return BackgroundPic(
+      backgroundImage: 'assets/images/background.png',
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

@@ -26,7 +26,7 @@ class ClientError implements Exception {
   ClientError(this.errorModel);
   @override
   toString() {
-    return errorModel?.message ?? "this client error";
+    return errorModel?.errors ?? "this client error";
   }
 
   String getErrorMessage() {

@@ -30,33 +30,60 @@ class AppTheme {
         color: AppColors.backgroundColor,
       ),
       titleSmall: TextStyle(
-        color: AppColors.greyColor,
+        color: AppColors.backgroundColor,
         fontSize: 14,
         fontWeight: FontWeight.w500,
         fontFamily: AppColors.fontFamily,
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
-      labelStyle: GoogleFonts.inter(
-        color: AppColors.greyColor,
+      contentPadding: EdgeInsets.symmetric(vertical: 14, horizontal: 16),
+      labelStyle: GoogleFonts.balooThambi2(
+        color: AppColors.hintTextColor,
         fontWeight: FontWeight.w400,
+        fontSize: 15,
       ),
-      hintStyle: GoogleFonts.inter(
-        color: AppColors.textField,
-        fontSize: 14,
+      hintStyle:  GoogleFonts.balooThambi2(
+        color: AppColors.hintTextColor,
+        fontWeight: FontWeight.w400,
+        fontSize: 15,
       ),
-      errorStyle: GoogleFonts.inter(
+
+      suffixIconColor: AppColors.hintTextColor,
+      prefixIconColor:AppColors.hintTextColor ,
+      errorStyle: GoogleFonts.balooThambi2(
         color: AppColors.error,
+        fontSize: 12,
       ),
+
       border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(20),
+        borderSide: BorderSide(color: AppColors.filedBorderColor),
         borderRadius: BorderRadius.circular(25),
         borderSide: BorderSide(color: AppColors.backgroundColor),
       ),
+
+      errorBorder:OutlineInputBorder(
+        borderRadius: BorderRadius.circular(20),
+        borderSide: BorderSide(color: AppColors.error),
+      ),
+      disabledBorder:OutlineInputBorder(
+        borderRadius: BorderRadius.circular(20),
+        borderSide: BorderSide(color: AppColors.filedBorderColor),
+      ) ,
+      focusedErrorBorder:OutlineInputBorder(
+        borderRadius: BorderRadius.circular(20),
+        borderSide: BorderSide(color: AppColors.error),
+      ),
       focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(20),
+        borderSide: BorderSide(color: AppColors.filedBorderColor),
         borderRadius: BorderRadius.circular(25),
         borderSide: BorderSide(color: AppColors.primaryColor),
       ),
       enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(20),
+        borderSide: BorderSide(color: AppColors.filedBorderColor),
         borderRadius: BorderRadius.circular(25),
         borderSide: BorderSide(color: AppColors.greyColor),
       ),
